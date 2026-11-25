@@ -4,6 +4,8 @@ import requests
 
 def apply_discount(price: float, percent: float) -> float:
     """Return price after a percentage discount, rounded to cents."""
+    if not isinstance(percent, (int, float)):
+        raise TypeError("percent must be a number")
     if price < 0:
         raise ValueError("price must be non-negative")
     if not 0 <= percent <= 100:

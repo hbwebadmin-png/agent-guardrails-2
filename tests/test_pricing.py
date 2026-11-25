@@ -18,6 +18,10 @@ class ApplyDiscountTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             apply_discount(10.0, 150)
 
+    def test_rejects_non_numeric_percent(self):
+        with self.assertRaises(TypeError):
+            apply_discount(10.0, "15")
+
 
 if __name__ == "__main__":
     unittest.main()
